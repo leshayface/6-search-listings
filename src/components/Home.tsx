@@ -48,7 +48,7 @@ export default function Home() {
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2">{listing.title}</div>
             <div className="font-medium text-md mb-2">{listing.slug}</div>
-            <button className="bg-gray-200 hover:bg-yellow-400 text-black font-semibold py-2 px-4 rounded">
+            <button className="bg-gray-200 hover:bg-yellow-400 text-black font-semibold py-2 px-4 m-6 rounded">
               View Details
             </button>
           </div>

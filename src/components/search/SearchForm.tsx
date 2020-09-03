@@ -64,7 +64,7 @@ const LargeSearchIcon = styled(FontAwesomeIcon)`
   height: 60px;
 `;
 
-const SearchForm = ({search, updateSearch, updateSearchValue}) => {
+const SearchForm = ({search, updateSearch, updateSearchValue} : {search:any, updateSearch:any, updateSearchValue:any}) => {
   const [onShrink, setOnShrink] = useState(false);
   const [afterShrink, setAfterShrink] = useState(false);
 
@@ -86,7 +86,7 @@ const SearchForm = ({search, updateSearch, updateSearchValue}) => {
       animationDuration: afterShrink && "1s",
       animationTimingFunction: afterShrink && "ease-out",
       animationFillMode: afterShrink && "forwards",
-    }
+    } as React.CSSProperties;
    };
 
    const largeSearchIconStyle = () => {
@@ -96,7 +96,7 @@ const SearchForm = ({search, updateSearch, updateSearchValue}) => {
       animationDuration: onShrink && "1s", 
       animationTimingFunction: onShrink && "ease-out",
       animationFillMode: "forwards",
-    }
+    } as React.CSSProperties;
    }
 
   return (
