@@ -12,12 +12,12 @@ const FormContainer = styled.div`
 
 const SearchContainer = styled.form`
   height: 60px;
+  display: flex;
 `;
 
-const SearchInput = styled.input `
+const SearchTitleInput = styled.input`
   box-sizing: border-box;
   padding: 0 40px 0 10px;
-  width: 100%;
   height: 50px;
   border: 4px solid #000;
   background: none;
@@ -26,10 +26,7 @@ const SearchInput = styled.input `
   font-size: 16px;
   font-weight: 400;
   border-radius: 4px;
-
-  @media only screen and (min-width: 320px) {
-    width: 300px;
-  }
+  margin: 8px;
 
   ::placeholder {
     color: #000;
@@ -37,24 +34,33 @@ const SearchInput = styled.input `
   }
 `;
 
+const SelectCategory = styled.select`
+  box-sizing: border-box;
+  padding: 0 40px 0 10px;
+  height: 50px;
+  border: 4px solid #000;
+  background: none;
+  color: #000;
+  font-family: Roboto;
+  font-size: 16px;
+  font-weight: 400;
+  border-radius: 4px;
+  margin: 8px;
+`;
+
 const SearchButton = styled.button`
   background: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  height: 50px;
-  width: 50px;
-  padding: 0;
-  outline: 0;
-  border: 0;
-  cursor: pointer;
+  width: 80px;
+  height: 80px
+  margin: 8px;
 `;
 
 const SearchIcon = styled(FontAwesomeIcon)`
-  width: 20px !important;
-  height: 20px;
+  width: 30px !important;
+  height: 30px;
   font-family: Roboto;
   color: #000;
+  vertical-align: bottom;
 `;
 
 const LargeSearchIcon = styled(FontAwesomeIcon)`
@@ -64,7 +70,7 @@ const LargeSearchIcon = styled(FontAwesomeIcon)`
   height: 60px;
 `;
 
-const SearchForm = ({search, updateSearch, updateSearchValue} : {search:any, updateSearch:any, updateSearchValue:any}) => {
+const SearchForm = ({searchTitle, updateSearchTitle, searchCat, updateSearchCat, updateSearchValue} : {searchTitle:any, updateSearchTitle:any, updateSearchValue:any, searchCat:any, updateSearchCat:any}) => {
   const [onShrink, setOnShrink] = useState(false);
   const [afterShrink, setAfterShrink] = useState(false);
 
@@ -102,7 +108,14 @@ const SearchForm = ({search, updateSearch, updateSearchValue} : {search:any, upd
   return (
     <FormContainer className="formContainer">
       <SearchContainer style={searchContainerStyle()} onSubmit={updateSearchValue}>
-        <SearchInput type="text" value={search} placeholder="eg. Samsung" onChange={updateSearch}/>
+        <SearchTitleInput type="text" value={searchTitle} placeholder="Title" onChange={updateSearchTitle}/>
+        <SelectCategory value={searchCat} onChange={updateSearchCat}>
+          <option value="">Select A Category</option>
+          <option value="Furniture">Furniture</option>
+          <option value="Electronics">Electronics</option>
+          <option value="Cars">Cars</option>
+          <option value="Property">Property</option>
+        </SelectCategory>
         <SearchButton type="submit" ><SearchIcon icon={faSearch} /></SearchButton>
       </SearchContainer>
       <LargeSearchIcon style={largeSearchIconStyle()} icon={faSearch} onClick={onShrinkChange} />

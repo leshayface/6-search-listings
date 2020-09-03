@@ -15,42 +15,50 @@ export interface Values {
 
 export default function Home() {
 
-  const [search, setSearch] = useState("");
-  const [searchValue, setSearchValue] = useState("");
+  const [searchTitle, setSearchTitle] = useState("");
+  const [searchTitleValue, setSearchTitleValue] = useState("");
+
+  const [searchCat, setSearchCat] = useState("");
+  const [searchCatValue, setSearchCatValue] = useState("");
 
   const [data, setData] = useState([] as Values[]);
   useEffect(() => {
       getData();
-  }, [searchValue]);
+  }, [searchTitleValue, searchCatValue]);
 
   const getData = async () => {
-    const listings = await axios.get(`http://localhost:5000/listings?title_like=${searchValue}`);
+    const listings = await axios.get(`http://localhost:5000/listings?title_like=${searchTitleValue}&category_like=${searchCatValue}`);
     setData(listings.data);
-    console.log(listings)
   }
 
-  const updateSearch = (e: any) => {
-    setSearch(e.target.value);
-    console.log(search);
+  const updateSearchTitle = (e: any) => {
+    setSearchTitle(e.target.value);
+  }
+  
+  const updateSearchCat = (e: any) => {
+    setSearchCat(e.target.value);
   }
 
   const updateSearchValue = (e: any) => {
     e.preventDefault();
-    setSearchValue(search);
-    search === "" && setSearchValue("salad");
+    setSearchTitleValue(searchTitle);
+    setSearchCatValue(searchCat)
+    searchTitle === "" && setSearchTitleValue("");
+    searchCat === "" && setSearchCatValue("");
   }
 
   return (
-    <div className="flex flex-col items-center bg-gray-200 h-screen">
-      <SearchForm search={search} updateSearch={updateSearch} updateSearchValue={updateSearchValue}/>
+      <div className="flex flex-col items-center bg-gray-200 h-screen">
+      <SearchForm searchTitle={searchTitle} updateSearchTitle={updateSearchTitle} updateSearchValue={updateSearchValue} searchCat={searchCat} updateSearchCat={updateSearchCat}/>
       {data.map(listing => (
-        <div className="max-w-lg bg-white rounded overflow-hidden shadow-lg my-8 w-3/4 text-center" key={listing.title}>
+        <div className="bg-white rounded overflow-hidden shadow-lg my-8 w-4/5 md:w-3/6 text-center" key={listing.title}>
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2">{listing.title}</div>
             <div className="font-medium text-md mb-2">{listing.slug}</div>
             <button className="bg-gray-200 hover:bg-yellow-400 text-black font-semibold py-2 px-4 m-6 rounded">
               View Details
             </button>
+            <p className="text-xs flex justify-end">Catagory: {listing.category}</p>
           </div>
         </div>
       ))}
