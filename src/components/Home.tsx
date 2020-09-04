@@ -10,7 +10,7 @@ export interface Values {
   price: number,
   currency: string,
   email: string,
-  category: object
+  category: string
 }
 
 export default function Home() {
