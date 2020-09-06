@@ -6,6 +6,8 @@ import axios from 'axios';
 export interface Values {
   title: string,
   slug: string,
+  dateOnline: string,
+  dateOffline: string,
   description: string,
   price: number,
   currency: string,
