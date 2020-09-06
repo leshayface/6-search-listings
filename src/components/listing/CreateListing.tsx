@@ -63,35 +63,78 @@ function CreateCustomer<RouteComponentProps>() {
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                 Title
               </label>
-              <input ref={register({ required: "Required", pattern: {value: /^[A-Za-z]+$/i, message: "Invalid title format"} })} name="title" onChange={handleChange} defaultValue={values.title} className="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white" id="grid-first-name" type="text" placeholder="eg. Samsung S8 Plus" />
+              <input
+                ref={register({ required: "Required", pattern: {value: /^[A-Za-z]+$/i, message: "Invalid title format"} })}
+                name="title" onChange={handleChange} defaultValue={values.title}
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"
+                id="grid-first-name"
+                type="text"
+                placeholder="eg. Samsung S8 Plus"
+              />
               <p className="text-xs text-red-600">{errors.title && errors.title.message}</p>
             </div>
             <div className="w-full md:w-1/2 px-3 my-4">
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                 Slug
               </label>
-              <input ref={register({ required: "Required", pattern: {value: /^[A-Za-z]+$/i, message: "Invalid slug format"}})} name="slug" onChange={handleChange} defaultValue={values.slug} className="appearance-none block w-full bg-gray-200 text-gray-700 border  border-yellow-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="eg.In like new condition" />
+              <input
+                ref={register({ required: "Required", pattern: {value: /^[A-Za-z]+$/i, message: "Invalid slug format"}})}
+                name="slug"
+                onChange={handleChange}
+                defaultValue={values.slug}
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border  border-yellow-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-last-name"
+                type="text"
+                placeholder="eg.In like new condition"
+              />
               <p className="text-xs text-red-600">{errors.slug && errors.slug.message}</p>
             </div>
             <div className="w-full md:w-1/2 px-3 my-4">
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                 Date Online
               </label>
-              <input ref={register({ required: "Required", pattern: {value: /^(0?[1-9]|[12][0-9]|3[01])[\/](0?[1-9]|1[012])[\/\-]\d{4}$/, message: "Invalid date format, please use DD/MM/YYYY"}})} name="dateOnline" onChange={handleChange} defaultValue={values.dateOnline} className="appearance-none block w-full bg-gray-200 text-gray-700 border  border-yellow-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="DD/MM/YYYY" />
+              <input
+                ref={register({ required: "Required", pattern: {value: /^(0?[1-9]|[12][0-9]|3[01])[\/](0?[1-9]|1[012])[\/\-]\d{4}$/, message: "Invalid date format, please use DD/MM/YYYY"}})}
+                name="dateOnline"
+                onChange={handleChange}
+                defaultValue={values.dateOnline}
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border  border-yellow-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-last-name"
+                type="text"
+                placeholder="DD/MM/YYYY"
+              />
               <p className="text-xs text-red-600">{errors.dateOnline && errors.dateOnline.message}</p>
             </div>
             <div className="w-full md:w-1/2 px-3 my-4">
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                 Date Offline
               </label>
-              <input ref={register({ required: "Required", pattern: {value: /^(0?[1-9]|[12][0-9]|3[01])[\/](0?[1-9]|1[012])[\/\-]\d{4}$/, message: "Invalid date format, please use DD/MM/YYYY"}})} name="dateOffline" onChange={handleChange} defaultValue={values.dateOffline} className="appearance-none block w-full bg-gray-200 text-gray-700 border  border-yellow-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" type="text" placeholder="DD/MM/YYYY" />
+              <input
+                ref={register({ required: "Required", pattern: {value: /^(0?[1-9]|[12][0-9]|3[01])[\/](0?[1-9]|1[012])[\/\-]\d{4}$/, message: "Invalid date format, please use DD/MM/YYYY"}})}
+                name="dateOffline"
+                onChange={handleChange}
+                defaultValue={values.dateOffline}
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border  border-yellow-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-last-name"
+                type="text"
+                placeholder="DD/MM/YYYY"
+              />
               <p className="text-xs text-red-600">{errors.dateOffline && errors.dateOffline.message}</p>
             </div>
             <div className="w-full md:w-1/2 px-3 my-4">
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                 Price
               </label>
-              <input ref={register({ required: "Required", pattern: {value: /^(?!\s*$).+/, message: "You must select an option"}})} name="price" onChange={handleChange} type="number" defaultValue={values.price} className="appearance-none block w-full bg-gray-200 text-gray-700 border  border-yellow-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" placeholder="eg. 100" />
+              <input
+                ref={register({ required: "Required", pattern: {value: /^(?!\s*$).+/, message: "You must select an option"}})}
+                name="price"
+                onChange={handleChange}
+                type="number"
+                defaultValue={values.price}
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border  border-yellow-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-last-name"
+                placeholder="eg. 100"
+              />
               <p className="text-xs text-red-600">{errors.price && errors.price.message}</p>
             </div>
             <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0 my-4">
@@ -99,7 +142,14 @@ function CreateCustomer<RouteComponentProps>() {
                 Currency
               </label>
               <div className="relative">
-                <select ref={register({ required: "Required", pattern: {value: /^(?!\s*$).+/, message: "You must select an option"}})} name="currency" onChange={handleChange} defaultValue={values.currency} className="block appearance-none w-full bg-gray-200 border  border-yellow-500 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                <select
+                  ref={register({ required: "Required", pattern: {value: /^(?!\s*$).+/, message: "You must select an option"}})}
+                  name="currency"
+                  onChange={handleChange}
+                  defaultValue={values.currency}
+                  className="block appearance-none w-full bg-gray-200 border  border-yellow-500 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-state"
+                >
                   <option value="">Select A Currency</option>
                   <option value="Furniture">ZAR</option>
                   <option value="Electronics">USD</option>
@@ -134,7 +184,13 @@ function CreateCustomer<RouteComponentProps>() {
                 Category
               </label>
               <div className="relative">
-                <select ref={register({ required: "Required", pattern: {value: /^(?!\s*$).+/, message: "You must select an option"}})} name="category" defaultValue={values.category} className="block appearance-none w-full bg-gray-200 border  border-yellow-500 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-state">
+                <select
+                  ref={register({ required: "Required", pattern: {value: /^(?!\s*$).+/, message: "You must select an option"}})}
+                  name="category"
+                  defaultValue={values.category}
+                  className="block appearance-none w-full bg-gray-200 border  border-yellow-500 text-gray-700 py-3 px-4 pr-8 rounded leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                  id="grid-state"
+                >
                   <option value="">Select A Category</option>
                   <option value="Furniture">Furniture</option>
                   <option value="Electronics">Electronics</option>
@@ -149,7 +205,15 @@ function CreateCustomer<RouteComponentProps>() {
               <label className="block uppercase tracking-wide text-gray-700 text-xs font-bold mb-2">
                 Description
               </label>
-              <textarea ref={register({ required: "Required", pattern: {value: /^[A-Za-z]+$/i, message: "Please add a description"} })} name="description" onChange={handleChange} defaultValue={values.description} className="appearance-none block w-full bg-gray-200 text-gray-700 border  border-yellow-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" id="grid-last-name" placeholder="Describe your product / service in more depth" />
+              <textarea
+                ref={register({ required: "Required", pattern: {value: /^[A-Za-z]+$/i, message: "Please add a description"} })}
+                name="description"
+                onChange={handleChange}
+                defaultValue={values.description}
+                className="appearance-none block w-full bg-gray-200 text-gray-700 border  border-yellow-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+                id="grid-last-name"
+                placeholder="Describe your product / service in more depth"
+              />
               <p className="text-xs text-red-600">{errors.description && errors.description.message}</p>
             </div>
           </div>
