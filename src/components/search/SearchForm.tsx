@@ -19,7 +19,7 @@ const SearchTitleInput = styled.input`
   box-sizing: border-box;
   padding: 0 40px 0 10px;
   height: 50px;
-  border: 4px solid #000;
+  border: 3px solid #2d3748;
   background: none;
   color: #000;
   font-family: Roboto;
@@ -30,7 +30,6 @@ const SearchTitleInput = styled.input`
 
   ::placeholder {
     color: #000;
-    opacity: 0.8;
   }
 `;
 
@@ -38,7 +37,7 @@ const SelectCategory = styled.select`
   box-sizing: border-box;
   padding: 0 40px 0 10px;
   height: 50px;
-  border: 4px solid #000;
+  border: 3px solid #2d3748;
   background: none;
   color: #000;
   font-family: Roboto;
@@ -59,7 +58,7 @@ const SearchIcon = styled(FontAwesomeIcon)`
   width: 30px !important;
   height: 30px;
   font-family: Roboto;
-  color: #000;
+  color: #2d3748;
   vertical-align: bottom;
 `;
 
@@ -68,6 +67,7 @@ const LargeSearchIcon = styled(FontAwesomeIcon)`
   color: #000;
   width: 60px !important;
   height: 60px;
+  color: #2d3748;
 `;
 
 const SearchForm = ({searchTitle, updateSearchTitle, searchCat, updateSearchCat, updateSearchValue} : {searchTitle:any, updateSearchTitle:any, updateSearchValue:any, searchCat:any, updateSearchCat:any}) => {
@@ -108,7 +108,7 @@ const SearchForm = ({searchTitle, updateSearchTitle, searchCat, updateSearchCat,
   return (
     <FormContainer className="formContainer">
       <SearchContainer style={searchContainerStyle()} onSubmit={updateSearchValue}>
-        <SearchTitleInput type="text" value={searchTitle} placeholder="Title" onChange={updateSearchTitle}/>
+        <SearchTitleInput type="text" value={searchTitle} placeholder="Search By Title" onChange={updateSearchTitle}/>
         <SelectCategory value={searchCat} onChange={updateSearchCat}>
           <option value="">Select A Category</option>
           <option value="Furniture">Furniture</option>
