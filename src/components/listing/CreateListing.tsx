@@ -32,7 +32,7 @@ const defaultValues: Values = {
   category: ""
 }
 
-function CreateCustomer<RouteComponentProps>() {
+function CreateListing<RouteComponentProps>() {
     const [values, setValues] = useState(defaultValues as Values);
 
     const history = useHistory();
@@ -224,4 +224,4 @@ function CreateCustomer<RouteComponentProps>() {
       </div>
 )}
 
-export default CreateCustomer;
+export default CreateListing;
