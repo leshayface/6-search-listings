@@ -1,6 +1,7 @@
 {
   "listings": [
     {
+      "id": 1,
       "title": "Bed",
       "slug": "Queen Size Bed",
       "description": "Queen Size Bed in like new condition for sale",
@@ -11,6 +12,7 @@
       "category": "Furniture"
     },
     {
+      "id": 2,
       "title": "Samsung S8 plus",
       "slug": "Samsung S8 plus for sale with 1 year warranty",
       "description": "Samsung S8 plus for sale with 1 year warranty. In good condition. Selling because I got an upgrade.",

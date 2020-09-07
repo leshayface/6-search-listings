@@ -116,7 +116,7 @@ const SearchForm = ({searchTitle, updateSearchTitle, searchCat, updateSearchCat,
           <option value="Cars">Cars</option>
           <option value="Property">Property</option>
         </SelectCategory>
-        <SearchButton type="submit" ><SearchIcon icon={faSearch} /></SearchButton>
+        <SearchButton type="submit"><SearchIcon icon={faSearch} /></SearchButton>
       </SearchContainer>
       <LargeSearchIcon style={largeSearchIconStyle()} icon={faSearch} onClick={onShrinkChange} />
     </FormContainer>
