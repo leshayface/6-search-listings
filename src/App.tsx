@@ -2,6 +2,7 @@ import React from 'react';
 import { Link, Switch, Route } from 'react-router-dom';
 import Home from './components/Home';
 import CreateListing from './components/listing/CreateListing';
+import ListingDetails from './components/listing/ListingDetails';
 
 function App() {
   return (
@@ -24,7 +25,8 @@ function App() {
       </nav>
       <Switch>
         <Route path={'/'} exact component={Home} />
-        <Route path={'/create'} exact component={CreateListing} /> 
+        <Route path={'/create'} exact component={CreateListing} />
+        <Route path={'/listing/:id'} exact component={ListingDetails} />
       </Switch>
     </div>
   );

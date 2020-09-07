@@ -17,7 +17,6 @@ export interface Values {
 }
 
 export default function Home() {
-
   const [searchTitle, setSearchTitle] = useState("");
   const [searchTitleValue, setSearchTitleValue] = useState("");
 
@@ -60,15 +59,14 @@ export default function Home() {
         updateSearchCat={updateSearchCat}
       />
       {data.map(listing => (
-        <Link className="bg-white rounded overflow-hidden shadow-lg my-8 w-4/5 md:w-3/6 text-center"
-              to={`/listing/${listing.id}`} key={listing.id}>
+        <Link className="bg-white rounded overflow-hidden shadow-lg my-8 w-4/5 md:w-3/6 text-center" to={`/listing/${listing.id}`} key={listing.id}>
           <div className="px-6 py-4">
             <div className="font-bold text-xl mb-2">{listing.title}</div>
             <div className="font-medium text-md mb-2">{listing.slug}</div>
             <button className="bg-gray-200 hover:bg-yellow-400 text-black font-semibold py-2 px-4 m-6 rounded">
               View Details
             </button>
-            <p className="text-xs flex justify-end">Category: {listing.category}</p>
+            <div className="text-xs flex justify-end">Category: {listing.category}</div>
           </div>
         </Link>
       ))}
