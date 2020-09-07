@@ -5,9 +5,10 @@
       "title": "Bed",
       "slug": "Queen Size Bed",
       "description": "Queen Size Bed in like new condition for sale",
-      "date Online": "02/09/2020",
-      "date Offline": "20/10/2020",
+      "dateOnline": "02/09/2020",
+      "dateOffline": "20/10/2020",
       "currency": "Zar",
+      "price": 1500,
       "email": "person1@example.com",
       "category": "Furniture"
     },
@@ -16,9 +17,10 @@
       "title": "Samsung S8 plus",
       "slug": "Samsung S8 plus for sale with 1 year warranty",
       "description": "Samsung S8 plus for sale with 1 year warranty. In good condition. Selling because I got an upgrade.",
-      "date Online": "03/09/2020",
-      "date Offline": "08/10/2020",
+      "dateOnline": "03/09/2020",
+      "dateOffline": "08/10/2020",
       "currency": "Zar",
+      "price": 18000,
       "email": "person2@example.com",
       "category": "Electronics"
     }
