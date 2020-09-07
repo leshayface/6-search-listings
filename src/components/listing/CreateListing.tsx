@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 
+//data value types
 export interface Values {
   title: string,
   slug: string,
@@ -12,12 +13,16 @@ export interface Values {
   email: string,
   category: string
 }
-export interface IFormState {
+
+//form state types
+export interface FormState {
   [key: string]: any;
   values: Values[];
   submitSuccess: boolean;
   loading: boolean;
 }
+
+//initial data values
 const defaultValues: Values = {
   title: "",
   slug: "",
@@ -31,8 +36,10 @@ const defaultValues: Values = {
 }
 
 function CreateListing<RouteComponentProps>() {
+   //useSate hook for values
   const [values, setValues] = useState(defaultValues as Values);
 
+  // method to update values state
   const handleChange = (event: any) => {
     event.persist();
     setValues(values => ({
@@ -41,15 +48,18 @@ function CreateListing<RouteComponentProps>() {
     }));
   }
 
+  // method to display object of inserted data
   const onSubmit = (values: any) => {
     alert("Object to send to backend:" + JSON.stringify(values))
   };
 
+  // react-hook-form used for form validation
   const { handleSubmit, register, errors } = useForm();
 
   return (
     <div className="w-full max-w-lg mx-auto my-20">
       <h1 className="text-4xl my-6 text-gray-800">Fill Out Your Listing Details</h1>
+      {/* onSubmit calls methods */}
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="flex flex-wrap -mx-3 mb-6">
           <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0 my-4">
@@ -57,6 +67,7 @@ function CreateListing<RouteComponentProps>() {
               Title
             </label>
             <input
+              // regular expressions used for form validation with react-hook-form
               ref={register({ required: "Required", pattern: {value: /^[A-Za-z0-9_-]*$/, message: "Invalid format. Only letters, numbers, underscores & dashes are allowed."} })}
               name="title" onChange={handleChange} defaultValue={values.title}
               className="appearance-none block w-full bg-gray-200 text-gray-700 border border-yellow-500 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white"

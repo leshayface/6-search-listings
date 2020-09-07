@@ -3,6 +3,7 @@ import SearchForm from './search/SearchForm'
 import axios from 'axios';
 import {Link} from "react-router-dom";
 
+//data value types
 export interface Values {
   id: number,
   title: string,
@@ -17,14 +18,18 @@ export interface Values {
 }
 
 export default function Home() {
+  //useSate hooks for search title state values
   const [searchTitle, setSearchTitle] = useState("");
   const [searchTitleValue, setSearchTitleValue] = useState("");
 
+  //useSate hooks for search category state values
   const [searchCat, setSearchCat] = useState("");
   const [searchCatValue, setSearchCatValue] = useState("");
 
+  // useSate hook for data
   const [data, setData] = useState([] as Values[]);
 
+  // useEffect hook to fetch data with axios and set the new data state
   useEffect(() => {
     const getData = async () => {
       const listings = await axios.get(`http://localhost:5000/listings?title_like=${searchTitleValue}&category_like=${searchCatValue}`);
@@ -33,14 +38,17 @@ export default function Home() {
     getData();
   }, [searchTitleValue, searchCatValue]);
 
+  // method to update search title state
   const updateSearchTitle = (e: any) => {
     setSearchTitle(e.target.value);
   }
 
+  // method to update search category state
   const updateSearchCat = (e: any) => {
     setSearchCat(e.target.value);
   }
 
+  // method to update all search values
   const updateSearchValue = (e: any) => {
     e.preventDefault();
     setSearchTitleValue(searchTitle);
@@ -51,6 +59,7 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center bg-gray-200 h-screen">
+      {/* pass props*/}
       <SearchForm
         searchTitle={searchTitle}
         updateSearchTitle={updateSearchTitle}
@@ -58,6 +67,7 @@ export default function Home() {
         searchCat={searchCat}
         updateSearchCat={updateSearchCat}
       />
+      {/* map data and display it */}
       {data.map(listing => (
         <Link className="bg-white rounded overflow-hidden shadow-lg my-8 w-4/5 md:w-3/6 text-center" to={`/listing/${listing.id}`} key={listing.id}>
           <div className="px-6 py-4">

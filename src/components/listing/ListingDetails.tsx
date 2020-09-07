@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
 
+//data value types
 export interface Values {
   id: number,
   title: string,
@@ -13,6 +14,7 @@ export interface Values {
   category: string
 }
 
+//initial data values
 const defaultValues: Values = {
   id: 0,
   title: "",
@@ -27,8 +29,10 @@ const defaultValues: Values = {
 }
 
 export default function ListingDetails(props:any) {
+  //useSate hook for values
   const [data, setData] = useState(defaultValues as Values);
 
+  // useEffect hook to fetch data with specific id and set the new data state
   useEffect(() => {
     const getData = async () => {
       const { params } = props.match;
@@ -48,12 +52,12 @@ export default function ListingDetails(props:any) {
             <div className="text-xs text-blue-600">Date Online: {data.dateOnline}</div>
             <div className="text-md my-8">{data.description}</div>
             <div className="text-lg font-semibold text-blue-600 mt-8">{data.currency} {data.price}</div>
-            <div className="flex items-end mt-8 mb-2">
+            <div className="flex flex-col sm:flex-row items-center sm:items-end mt-8 mb-2">
               <div className="flex items-end justify-start">
                 <div className="font-medium text-sm text-md mt-2 mr-2">Contact:</div>
                 <div className="font-medium text-sm text-md text-blue-600">{data.email}</div>
               </div>
-              <div className="text-xs flex w-full justify-end">Category: {data.category}</div>
+              <div className="text-xs flex w-full justify-center sm:justify-end">Category: {data.category}</div>
             </div>
           </div>
         </div>
